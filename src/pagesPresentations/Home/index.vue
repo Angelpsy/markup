@@ -1,15 +1,29 @@
 <template>
-  <div class="p-home">
-      <button @click="$emit('fetch-products')">Получить данные</button>
-      <div v-if="isLoading">Загрузка...</div>
-      <div v-if="products">Данные: {{ products }} </div>
-      <div v-if="isError">Error: {{ errorMessage ? errorMessage : errorStatus }} </div>
-  </div>
+    <ViewBase>
+        <div class="p-home">
+            <div class="p-home__header">
+                <v-btn
+                    class="p-home__action"
+                    color="default"
+                    @click="$emit('fetch-products')"
+                >
+                    Получить данные
+                </v-btn>
+            </div>
+            <div v-if="isLoading">Данные загружаются...</div>
+            <div v-if="products && !isLoading">Данные: {{ products }} </div>
+            <div v-if="isError">Error: {{ errorMessage ? errorMessage : errorStatus }} </div>
+        </div>
+    </ViewBase>
 </template>
 
 <script>
+import ViewBase from '@/views/Base'
 export default {
     name: 'HomePresentations',
+    components: {
+        ViewBase
+    },
     props: {
         products: {
             type: Array,
@@ -34,3 +48,5 @@ export default {
     }
 }
 </script>
+
+<style src="./index.css"></style>
