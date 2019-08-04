@@ -13,7 +13,12 @@
                 />
             </v-flex>
         </v-layout>
-<!-- TODO: добавить пагинацию -->
+    <div class="b-products__footer">
+        <v-pagination
+            v-model="page"
+            :length="6"
+        ></v-pagination>
+    </div>
     </v-container>
 </template>
 
@@ -34,13 +39,23 @@ export default {
         },
         pageCurrent: {
             type: Number,
-            default: 0
+            default: 1
+        }
+    },
+    data () {
+        return {
+            page: this.pageCurrent
+        }
+    },
+    watch: {
+        page () {
+            this.$emit('change-page', this.page)
         }
     },
     computed: {
         itemsToShow () {
             return this.items.slice(
-                (this.pageCurrent * PER_PAGE), ((this.pageCurrent + 1) * PER_PAGE)
+                ((this.pageCurrent - 1) * PER_PAGE), (this.pageCurrent * PER_PAGE)
             )
         }
     }

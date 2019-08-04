@@ -5,7 +5,9 @@
         :isError="isError"
         :errorMessage="errorMessage"
         :errorStatus="errorStatus"
+        :pageCurrent="pageCurrent"
         @fetch-products="fetchProducts"
+        @change-page="changePage"
     />
 </template>
 
@@ -33,11 +35,27 @@ export default {
         },
         isError () {
             return this.errorStatus !== null
+        },
+        pageCurrent () {
+            const _queryPage = +(this.$route.query.page || 1)
+            if (isNaN(_queryPage) || _queryPage < 1) {
+                this.changePage(1)
+            }
+            return _queryPage
         }
     },
     methods: {
         fetchProducts () {
             this.$store.dispatch(`Products/${ActionTypesProducts.FETCH}`)
+        },
+        changePage (page) {
+            this.$router.push({
+                name: 'home',
+                query: {
+                    ...this.$route.query,
+                    page: page !== 1 ? page : undefined
+                }
+            })
         }
     },
     mounted () {

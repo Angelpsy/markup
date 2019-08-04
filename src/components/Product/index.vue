@@ -54,12 +54,13 @@
 
 <script>
 import tinycolor from 'tinycolor2'
+
 export default {
     name: 'Product',
     props: {
         item: {
             type: Object,
-            require: true,
+            require: true
         }
     },
     methods: {

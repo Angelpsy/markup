@@ -15,8 +15,10 @@
             <div v-if="isError">Error: {{ errorMessage ? errorMessage : errorStatus }} </div>
             <Products
                 class="p-home__products"
-                :items="products"
                 v-if="products && !isLoading && !isError"
+                :items="products"
+                :pageCurrent="pageCurrent"
+                @change-page="$emit('change-page', $event)"
             />
         </div>
     </ViewBase>
@@ -52,6 +54,10 @@ export default {
         errorStatus: {
             type: [Number, null],
             default: null
+        },
+        pageCurrent: {
+            type: Number,
+            default: 1
         }
     }
 }
