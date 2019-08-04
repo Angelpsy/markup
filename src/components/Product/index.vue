@@ -19,7 +19,10 @@
                     <span
                         class="b-product__color"
                         v-for="(color, index) in item.product_colors"
-                        :style="{'background-color': color.hex_value}"
+                        :style="{
+                            'background-color': color.hex_value,
+                            'color': getColorByBg(color.hex_value)
+                            }"
                         :key="index"
                     >
                         {{ color.colour_name }}
@@ -50,6 +53,7 @@
 </template>
 
 <script>
+import tinycolor from 'tinycolor2'
 export default {
     name: 'Product',
     props: {
@@ -61,6 +65,10 @@ export default {
     methods: {
         addToCart () {
             alert(`${this.item.name} added to cart`)
+        },
+        getColorByBg (value) {
+            const color = tinycolor(value)
+            return color.isLight() ? '#000' : '#fff'
         }
     }
 }
