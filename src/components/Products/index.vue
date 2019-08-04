@@ -15,8 +15,11 @@
         </v-layout>
     <div class="b-products__footer">
         <v-pagination
+            color="orange darken-1"
+            dark
             v-model="page"
-            :length="6"
+            :length="countPages"
+            :total-visible="7"
         ></v-pagination>
     </div>
     </v-container>
@@ -57,6 +60,9 @@ export default {
             return this.items.slice(
                 ((this.pageCurrent - 1) * PER_PAGE), (this.pageCurrent * PER_PAGE)
             )
+        },
+        countPages () {
+            return Math.ceil(this.items.length / PER_PAGE)
         }
     }
 }

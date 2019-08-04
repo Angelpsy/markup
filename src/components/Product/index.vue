@@ -47,7 +47,7 @@
             <span class="b-product__price">
                 {{ item.price }} {{ item.price_sign }}
             </span>
-             <v-btn @click="addToCart">Buy</v-btn>
+             <v-btn @click="addToCart" color="orange lighten-1">Buy</v-btn>
         </v-card-actions>
     </v-card>
 </template>
