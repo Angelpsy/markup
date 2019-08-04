@@ -1,28 +1,36 @@
 <template>
     <ViewBase>
         <div class="p-home">
-            <div class="p-home__header">
-                <v-btn
-                    class="p-home__action"
-                    color="default"
-                    @click="$emit('fetch-products')"
-                >
-                    Получить данные
-                </v-btn>
-            </div>
+<!-- TODO: добавить форму с фильтрами -->
+<!--            <div class="p-home__header">-->
+<!--                <v-btn-->
+<!--                    class="p-home__action"-->
+<!--                    color="default"-->
+<!--                    @click="$emit('fetch-products')"-->
+<!--                >-->
+<!--                    Получить данные-->
+<!--                </v-btn>-->
+<!--            </div>-->
             <div v-if="isLoading">Данные загружаются...</div>
-            <div v-if="products && !isLoading">Данные: {{ products }} </div>
             <div v-if="isError">Error: {{ errorMessage ? errorMessage : errorStatus }} </div>
+            <Products
+                class="p-home__products"
+                :items="products"
+                v-if="products && !isLoading && !isError"
+            />
         </div>
     </ViewBase>
 </template>
 
 <script>
 import ViewBase from '@/views/Base'
+import Products from '@/components/Products'
+
 export default {
     name: 'HomePresentations',
     components: {
-        ViewBase
+        ViewBase,
+        Products
     },
     props: {
         products: {
