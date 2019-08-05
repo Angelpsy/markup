@@ -14,7 +14,11 @@
             <div v-if="isLoading">Данные загружаются...</div>
             <div v-if="isError">
                 Error: {{ errorMessage ? errorMessage : errorStatus }}
+                <p v-if="isGhPage">
+                    К сожалению на gh-page не работает api
+                </p>
                 <v-btn
+                    v-else
                     class="p-home__action"
                     color="default"
                     @click="$emit('fetch-products')"
@@ -67,6 +71,11 @@ export default {
         pageCurrent: {
             type: Number,
             default: 1
+        }
+    },
+    computed: {
+        isGhPage () {
+            return process.env.VUE_APP_IS_GH_PAGE
         }
     }
 }
