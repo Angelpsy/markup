@@ -1,9 +1,11 @@
+const PUBLIC_PATH = process.env.NODE_ENV === 'production'
+    ? process.env.VUE_APP_PUBLIC_PATH
+    : '/'
+
 module.exports = {
     lintOnSave: false,
     css: {
         sourceMap: true
     },
-    publicPath: process.env.NODE_ENV === 'production'
-        ? '/markup/'
-        : '/'
+    publicPath: PUBLIC_PATH
 }

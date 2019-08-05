@@ -5,8 +5,9 @@
   "scripts": {
     "serve": "vue-cli-service serve --port 3000",
     "build": "vue-cli-service build",
+    "build:gh-page": "vue-cli-service build --mode gh-page",
     "lint": "vue-cli-service lint",
-    "deploy": "npm run build && gh-pages -d dist"
+    "deploy": "npm run build:gh-page && gh-pages -d dist"
   },
   "dependencies": {
     "axios": "^0.19.0",
