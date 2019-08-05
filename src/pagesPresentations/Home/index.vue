@@ -12,7 +12,16 @@
 <!--                </v-btn>-->
 <!--            </div>-->
             <div v-if="isLoading">Данные загружаются...</div>
-            <div v-if="isError">Error: {{ errorMessage ? errorMessage : errorStatus }} </div>
+            <div v-if="isError">
+                Error: {{ errorMessage ? errorMessage : errorStatus }}
+                <v-btn
+                    class="p-home__action"
+                    color="default"
+                    @click="$emit('fetch-products')"
+                >
+                    Получить данные
+                </v-btn>
+            </div>
             <Products
                 class="p-home__products"
                 v-if="products && !isLoading && !isError"
