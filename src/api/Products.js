@@ -7,7 +7,7 @@ const CancelToken = axios.CancelToken
 
 const products = {
     getProducts (setCancelFetch) {
-        return wrapper(BASE_URL, {
+        return wrapper(BASE_URL + '.json', {
             cancelToken: new CancelToken(function executor (c) {
                 setCancelFetch && setCancelFetch(c)
             })

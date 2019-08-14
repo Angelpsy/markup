@@ -7,7 +7,7 @@
                 :key="item.id"
                 md4
             >
-                <Product
+                <ProductsItem
                     class="b-products__item-content"
                     :item="item"
                 />
@@ -26,14 +26,14 @@
 </template>
 
 <script>
-import Product from '@/components/Product'
+import ProductsItem from '@/components/ProductsItem'
 
 const PER_PAGE = 15
 
 export default {
     name: 'Products',
     components: {
-        Product
+        ProductsItem
     },
     props: {
         items: {
