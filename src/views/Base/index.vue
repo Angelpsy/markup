@@ -31,7 +31,12 @@
                         </v-btn>
                     </v-list-item>
                     <v-list-item>
-                        <v-btn text color="primary" tag="router-link" :to="{name: 'about'}">
+                        <v-btn
+                            text
+                            color="primary"
+                            tag="router-link"
+                            :to="{ name: 'about' }"
+                        >
                             О сайте
                         </v-btn>
                     </v-list-item>
@@ -44,6 +49,6 @@
 
 <script>
 export default {
-    name: 'ViewBase'
-}
+    name: "ViewBase"
+};
 </script>

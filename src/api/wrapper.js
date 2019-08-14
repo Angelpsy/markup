@@ -1,6 +1,6 @@
-import axios from 'axios'
+import axios from "axios";
 
 // TODO: сделать единый интерфейс возврата ошибки
-const wrapper = axios.create()
+const wrapper = axios.create();
 
-export { wrapper }
+export { wrapper };

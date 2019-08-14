@@ -13,17 +13,17 @@
 </template>
 
 <script>
-import ViewBase from '@/views/Base'
+import ViewBase from "@/views/Base";
 
 export default {
-    name: 'AboutPresentations',
+    name: "AboutPresentations",
     components: {
         ViewBase
     },
     computed: {
-        isGhPage () {
-            return process.env.VUE_APP_IS_GH_PAGE
+        isGhPage() {
+            return process.env.VUE_APP_IS_GH_PAGE;
         }
     }
-}
+};
 </script>

@@ -6,7 +6,7 @@
 <!--                <v-btn-->
 <!--                    class="p-home__action"-->
 <!--                    color="default"-->
-<!--                    @click="$emit('fetch-products')"-->
+<!--                    @click="$emit("fetch-products")"-->
 <!--                >-->
 <!--                    Получить данные-->
 <!--                </v-btn>-->
@@ -38,11 +38,11 @@
 </template>
 
 <script>
-import ViewBase from '@/views/Base'
-import Products from '@/components/Products'
+import ViewBase from "@/views/Base";
+import Products from "@/components/Products";
 
 export default {
-    name: 'HomePresentations',
+    name: "HomePresentations",
     components: {
         ViewBase,
         Products
@@ -62,7 +62,7 @@ export default {
         },
         errorMessage: {
             type: String,
-            default: ''
+            default: ""
         },
         errorStatus: {
             type: [Number, null],
@@ -74,11 +74,11 @@ export default {
         }
     },
     computed: {
-        isGhPage () {
-            return process.env.VUE_APP_IS_GH_PAGE
+        isGhPage() {
+            return process.env.VUE_APP_IS_GH_PAGE;
         }
     }
-}
+};
 </script>
 
 <style src="./index.css"></style>

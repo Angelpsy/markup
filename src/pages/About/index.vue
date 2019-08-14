@@ -3,12 +3,12 @@
 </template>
 
 <script>
-import Presentations from '@/pagesPresentations/About'
+import Presentations from "@/pagesPresentations/About";
 
 export default {
-    name: 'About',
+    name: "About",
     components: {
-        Presentations
-    }
-}
+        Presentations,
+    },
+};
 </script>
